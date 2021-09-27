@@ -1,0 +1,20 @@
+services:
+  aceserver:
+    container_name: aceserver
+    environment:
+      ACE_SERVER_NAME: ACESERVER
+      USE_QMGR: true
+      MQ_QMGR_NAME: QMGR
+      LICENSE: accept
+    image: ibmcom/ace-mq:latest
+    privileged: true
+    ports:
+    - 7600:7600
+    - 7800:7800
+    - 7843:7843
+    - 1414:1414
+    volumes:
+      - /home/aceuser/initial-config:/mnt/c/dockerApp/dockerACE/aceuser/initial-config
+      - /home/aceuser/ace-server/:/mnt/c/dockerApp/dockerACE/aceuser/ace-server
+      - /tmp/:/mnt/c/dockerApp/dockerACE/tmp
+version: '3'

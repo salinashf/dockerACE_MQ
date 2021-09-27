@@ -1,0 +1,25 @@
+services:
+  aceserver:
+    container_name: aceserver
+    environment:
+      ACE_SERVER_NAME: ACESERVER
+      USE_QMGR: true
+      MQ_QMGR_NAME: QMGR
+      LOG_FORMAT: json
+      LICENSE: accept
+      LANG: es
+      MQ_ENABLE_METRICS: true
+      LOG_FORMAT: json
+    image: ibmcom/ace-mq:latest
+    privileged: true
+    ports:
+    - 7600:7600
+    - 7680:7680
+    - 7800:7800
+    - 7843:7843
+    - 1414:1414
+    volumes:
+      - ./aceuser/initial-config:/home/aceuser/initial-config
+      - ./aceuser/ace-server:/home/aceuser/ace-server/
+      - ./tmp:/tmp/
+version: '3'

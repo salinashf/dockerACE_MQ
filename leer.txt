@@ -1,0 +1,150 @@
+
+docker-compose up -d
+docker-compose down 
+docker-compose stop
+docker-compose down -v 
+
+
+/mnt/c/dockerApp/dockerACE
+
+mqsicreateworkdir c:\WorkSpaceServer\BG_ORG_SWIFT_LOCAL
+IntegrationServer --name BG_ORG_SWIFT_LOCAL --work-dir c:\WorkSpaceServer\BG_ORG_SWIFT_LOCAL
+mqsisetdbparms -w c:\WorkSpaceServer\BG_ORG_SWIFT_LOCAL -n mq::AcedevID -u acedev -p acedev
+
+docker run --name aceserver -p 7600:7600 -p 7800:7800 -p 7843:7843 --env LICENSE=accept --env ACE_SERVER_NAME=ACESERVER --env USE_QMGR=true ibmcom/ace-server:latest
+docker exec -it aceserver /bin/bash
+docker stop  aceserver   
+
+mqsilist
+
+docker stop acemqserver
+./opt/ibm/ace-11/server/sample/globalcache/basic_1_catalog_1_container/server.conf.yaml
+./opt/ibm/ace-11/server/sample/configuration/server.conf.yaml
+docker run --privileged=true -it -v C:/dockerApp/dockerACE/
+ Output for "runmqsc" with /etc/mqm/15-tls.mqsc:
+
+runmqsc  QMGR
+
+ALTER CHL(DEV.APP.SVRCONN) CHLTYPE(SVRCONN) MCAUSER('admin')
+
+ALTER   QMGR CONNAUTH(USE.PW)
+DEFINE AUTHINFO(USE.PW) +
+AUTHTYPE(IDPWOS) +
+FAILDLAY(10) +
+CHCKLOCL(OPTIONAL) +
+CHCKCLNT(REQUIRED)
+REFRESH SECURITY TYPE(CONNAUTH)
+
+
+
+
+AMQ8414I: Detalles de Display Channel.
+   CHANNEL(DEV.APP.SVRCONN)                CHLTYPE(SVRCONN)
+
+
+
+
+runmqsc QMGR
+
+define channel(SYSTEM.ADMIN.SVRCONN) chltype(SVRCONN) MCAUSER('mqm')
+alter qmgr chlauth(DISABLED)
+refresh security
+
+
+
+SET CHLAUTH('ADMIN.CHAN') TYPE(USERMAP) +
+CLNTUSER ('hsalinas') USERSRC(MAP) MCAUSER ('mqm') +
+ADDRESS('172.20.1-100.*') +
+DESCR ('Allow henry Salinas as MQ-admin on local subnet') ACTION (ADD)
+
+
+DISPLAY CHANNEL(*)
+     1 : DISPLAY CHANNEL(*)
+AMQ8414I: Display Channel details.
+   CHANNEL(DEV.ADMIN.SVRCONN)              CHLTYPE(SVRCONN)
+AMQ8414I: Display Channel details.
+   CHANNEL(DEV.APP.SVRCONN)                CHLTYPE(SVRCONN)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.AUTO.RECEIVER)           CHLTYPE(RCVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.AUTO.SVRCONN)            CHLTYPE(SVRCONN)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.AMQP)                CHLTYPE(AMQP)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.CLUSRCVR)            CHLTYPE(CLUSRCVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.CLUSSDR)             CHLTYPE(CLUSSDR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.RECEIVER)            CHLTYPE(RCVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.REQUESTER)           CHLTYPE(RQSTR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.SENDER)              CHLTYPE(SDR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.SERVER)              CHLTYPE(SVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.SVRCONN)             CHLTYPE(SVRCONN)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.CLNTCONN)            CHLTYPE(CLNTCONN)
+
+
+
+
+runmqsc  QMGR
+DISPLAY CHANNEL(*)
+
+  4 : DISPLAY CHANNEL(*)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.AUTO.RECEIVER)           CHLTYPE(RCVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.AUTO.SVRCONN)            CHLTYPE(SVRCONN)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.BKR.CONFIG)              CHLTYPE(SVRCONN)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.AMQP)                CHLTYPE(AMQP)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.CLUSRCVR)            CHLTYPE(CLUSRCVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.CLUSSDR)             CHLTYPE(CLUSSDR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.RECEIVER)            CHLTYPE(RCVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.REQUESTER)           CHLTYPE(RQSTR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.SENDER)              CHLTYPE(SDR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.SERVER)              CHLTYPE(SVR)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.SVRCONN)             CHLTYPE(SVRCONN)
+AMQ8414I: Display Channel details.
+   CHANNEL(SYSTEM.DEF.CLNTCONN)            CHLTYPE(CLNTCONN)
+
+
+
+AMQ8408I: Display Queue Manager details.
+   QMNAME(QMGR)
+   CONNAUTH(SYSTEM.DEFAULT.AUTHINFO.IDPWOS)
+
+
+
+ The authoinfo object has a value of REQDADM for the attribute CHCKCLNT.
+
+
+
+
+
+ALTER authinfo(SYSTEM.DEFAULT.AUTHINFO.IDPWOS) AUTHTYPE(IDPWOS) CHCKCLNT(optional)
+REFRESH SECURITY TYPE(CONNAUTH)
+
+
+ALTER QMGR CHLAUTH(DISABLED)
+
+docker exec /bin/bash -c mqsilist
+docker-compose up
+
+
+docker stop acemqserver
+./opt/ibm/ace-11/server/sample/globalcache/basic_1_catalog_1_container/server.conf.yaml
+./opt/ibm/ace-11/server/sample/configuration/server.conf.yaml
+
+
