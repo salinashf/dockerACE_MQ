@@ -1,4 +1,6 @@
-ALTER CHL(DEV.APP.SVRCONN) CHLTYPE(SVRCONN) MCAUSER('admin')
+
+con esto  habilita todos los permisos para el  usuario admin 
+runmqsc  QMGR
 ALTER CHL(SYSTEM.AUTO.SVRCONN) CHLTYPE(SVRCONN) MCAUSER('admin')
 SET AUTHREC PROFILE('SYSTEM.DEFAULT.MODEL.QUEUE') OBJTYPE(QUEUE) PRINCIPAL('admin') AUTHADD(ALL)
 SET AUTHREC PROFILE('SYSTEM.ADMIN.COMMAND.QUEUE') OBJTYPE(QUEUE) PRINCIPAL('admin') AUTHADD(ALL) 
@@ -26,5 +28,6 @@ setmqaut -m QMGR -t q -n SYSTEM.DEFAULT.MODEL.QUEUE -p admin +inq +browse +get +
 setmqaut -m QMGR -t q -n SYSTEM.ADMIN.COMMAND.QUEUE -p admin +inq +put +dsp 
 setmqaut -m QMGR -t q -n SYSTEM.MQEXPLORER.REPLY.MODEL -p admin +inq +browse +get +dsp +put
 
-passw0rd
-passw0rd
+usuario de mq  
+admin passw0rd
+admin passw0rd
