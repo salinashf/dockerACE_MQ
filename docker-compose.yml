@@ -17,6 +17,10 @@ services:
     - 7800:7800
     - 7843:7843
     - 1414:1414
+    - 2800:2800
+    - 2801:2801
+    - 2803:2803
     volumes:
       - ./aceuser/initial-config:/home/aceuser/initial-config
+      - ./aceuser/ace-server:/home/aceuser/ace-server
 version: '3'

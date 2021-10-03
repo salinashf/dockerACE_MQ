@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorinterval="4" status="debug" strict="true">
+	<Properties>
+		<!--Ruta donde se guarda log, ruta maestra.-->
+		<Property name="logMainACE11">/home/aceuser/initial-config/serverconf/log4j/files/${sys:serverName}</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="RollingFile" fileName="${logMainACE11}/current/${sys:nodeName}.log" filePattern="${logMainACE11}/saves/%d{yyyy-MM-dd-HH}/${sys:nodeName}_%d{yyyy-MM-dd-H}.log" immediateFlush="true" bufferedIO="true" filePermissions="rwxrwxrwx">
+			<PatternLayout>
+				<pattern>[%t] [%p] | %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"/><!-- archivo por hora-->		
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<!--Nivel de log , ALL , DEBUG, INFO, ERROR ..y demas -->
+		<Root level="debug">
+			<AppenderRef ref="RollingFile"/>
+		</Root>
+	</Loggers>
+</Configuration>
+	

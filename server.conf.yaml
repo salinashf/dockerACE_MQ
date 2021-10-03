@@ -214,7 +214,7 @@ ResourceManagers:
     #jvmMinHeapSize: 33554432        # minimum JVM  heap size in bytes (32MB)
     #jvmMaxHeapSize: 268435456       # maximum JVM heap size in bytes (256MB)
     jvmDebugPort: 7680                 # Set non-zero to activate JVM debug port for Toolkit debugging
-    #jvmSystemProperty: ''
+    jvmSystemProperty: '-Dlog4j.configurationFile=/home/aceuser/initial-config/serverconf/log4j/log4j2.xml -DserverName=ace11ServerMaster -DnodeName=IntNodeDeveloper'
     #keystoreType: ''                # JVM key store type
     #keystoreFile: ''                # JVM location of the key store
     #keystorePass: ''                # JVM resource alias containing the key store password
