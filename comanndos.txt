@@ -32,6 +32,7 @@ usuario de mq
 admin passw0rd
 admin passw0rd
 
+--  ruta  para   el   fileupload 
 -DserverName=ace11ServerMaster
 /home/aceuser/initial-config/serverconf/archivosCache/${serverName}/
 
