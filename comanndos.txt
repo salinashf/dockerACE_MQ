@@ -31,3 +31,8 @@ setmqaut -m QMGR -t q -n SYSTEM.MQEXPLORER.REPLY.MODEL -p admin +inq +browse +ge
 usuario de mq  
 admin passw0rd
 admin passw0rd
+
+-DserverName=ace11ServerMaster
+/home/aceuser/initial-config/serverconf/archivosCache/${serverName}/
+
+
