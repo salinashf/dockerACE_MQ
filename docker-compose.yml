@@ -9,6 +9,7 @@ services:
       LICENSE: accept
       LANG: es
       MQ_ENABLE_METRICS: 'true'
+      ACE_ENABLE_METRICS: 'true'
     image: ibmcom/ace-mq:latest
     privileged: 'true'
     ports:
@@ -23,4 +24,5 @@ services:
     volumes:
       - ./aceuser/initial-config:/home/aceuser/initial-config
       - ./aceuser/ace-server:/home/aceuser/ace-server
+      - ./volumens/mqm/mnt:/mnt/mqm
 version: '3'
